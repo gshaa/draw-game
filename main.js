@@ -53,6 +53,7 @@ function createTable(height, width) {
     let tr = document.createElement("TR");
     for (let j = 0; j < width; j++) {
       let td = document.createElement("TD");
+      td.classList.add("tdClass");
       tr.append(td);
     }
     table.append(tr);
@@ -63,13 +64,35 @@ let buttonSize20px = document.getElementById("size20px");
 let buttonSize25px = document.getElementById("size25px");
 let buttonSize30px = document.getElementById("size30px");
 let buttonSizeOwn = document.getElementById("ownsize");
-let td = document.querySelectorAll("td");
+let tdElements = document.getElementsByClassName("tdClass");
 
-// buttonSize20px.onclick = () => {
-//   td.style.padding = "6px";
-// };
-// buttonSize25px.onclick = () => {
-//   for (let i of td) {
-//     i.style.padding = "11.5px";
-//   }
-// };
+buttonSize20px.onclick = () => {
+  for (let i = 0; i < tdElements.length; i++) {
+    tdElements[i].style.padding = "10px";
+  }
+};
+buttonSize25px.onclick = () => {
+  for (let i = 0; i < tdElements.length; i++) {
+    tdElements[i].style.padding = "12.5px";
+  }
+};
+
+buttonSize30px.onclick = () => {
+  for (let i = 0; i < tdElements.length; i++) {
+    tdElements[i].style.padding = "15px";
+  }
+};
+
+buttonSizeOwn.addEventListener("click", () => {
+  const inputValue = parseInt(prompt("Specify your value without units", "15"));
+  if (isNaN(inputValue) || inputValue < 5 || inputValue > 60) {
+    alert("Incorrect value");
+    return;
+  }
+  const paddingValue = inputValue / 2 + "px";
+  const tdLength = tdElements.length;
+
+  for (let i = 0; i < tdLength; i++) {
+    tdElements[i].style.padding = paddingValue;
+  }
+});
