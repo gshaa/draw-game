@@ -96,3 +96,18 @@ buttonSizeOwn.addEventListener("click", () => {
     tdElements[i].style.padding = paddingValue;
   }
 });
+
+const colorPicker = document.getElementById("color-picker");
+
+let chosenColor = "#000000";
+colorPicker.addEventListener("input", () => {
+  chosenColor = colorPicker.value;
+});
+
+table.addEventListener("click", (e) => {
+  target = e.target;
+
+  if (target.tagName != "TD") return;
+
+  target.style.backgroundColor = chosenColor;
+});
