@@ -10,6 +10,7 @@ td {
 
 .sizes {
   display: flex;
+  align-items: center;
   gap: 10px;
   margin-top: 1rem;
 }
@@ -21,4 +22,32 @@ td {
 }
 .table {
   margin-top: 2rem;
+}
+label,
+p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 19px;
+}
+
+button {
+  background-color: rgb(181, 251, 228);
+  padding: 5px 10px;
+  border-radius: 9px;
+  border: 1px solid black;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

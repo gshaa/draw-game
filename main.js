@@ -98,7 +98,7 @@ buttonSizeOwn.addEventListener("click", () => {
 });
 
 const colorPicker = document.getElementById("color-picker");
-
+let choosenTds = [];
 let chosenColor = "#000000";
 colorPicker.addEventListener("input", () => {
   chosenColor = colorPicker.value;
@@ -110,4 +110,12 @@ table.addEventListener("click", (e) => {
   if (target.tagName != "TD") return;
 
   target.style.backgroundColor = chosenColor;
+  choosenTds.push(target);
 });
+
+const clearAllButton = document.getElementById("clearAll");
+
+clearAllButton.onclick = () => {
+  choosenTds.forEach((td) => (td.style.backgroundColor = "white"));
+  choosenTds = [];
+};
